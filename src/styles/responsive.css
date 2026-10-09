@@ -1,0 +1,146 @@
+/* ==========================================================================
+   PLANTIFY RESPONSIVE BREAKPOINTS & LAYOUT UTILITIES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Responsive Containers & Grid Layouts
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.grid-responsive-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+}
+
+.flex-wrap-gap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. Large Tablets & Small Laptops (<= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --text-4xl: 2.2rem;
+    --text-3xl: 1.75rem;
+  }
+
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .catalog-layout {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Tablets & Large Mobile Devices (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --text-4xl: 1.85rem;
+    --text-3xl: 1.5rem;
+    --text-2xl: 1.25rem;
+  }
+
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .catalog-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .mobile-filter-toggle-row {
+    display: block !important;
+  }
+
+  .filter-sidebar {
+    position: static;
+    display: none;
+  }
+
+  .filter-sidebar.mobile-open {
+    display: block !important;
+  }
+
+  .category-tiles-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: var(--space-sm);
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tile {
+    min-width: 95px;
+    flex-shrink: 0;
+  }
+
+  .grid-responsive-showcase {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xl) !important;
+  }
+
+  .ai-spotlight-section {
+    padding: var(--space-xl) var(--space-lg) !important;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Small Mobile Phones (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-actions .icon-btn:not(.cart-btn) {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Account & Profile Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .account-tabs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+

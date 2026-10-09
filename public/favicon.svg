@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- Rounded container background -->
+  <rect width="48" height="48" rx="12" fill="#F4F7F4" />
+  <!-- Soft Sage Background Leaf -->
+  <path
+    d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 32 4 24 4C24 16 16 26 24 44Z"
+    fill="#87A987"
+    opacity="0.9"
+  />
+  <!-- Forest Green Primary Sprout -->
+  <path
+    d="M24 44C12.9543 44 4 35.0457 4 24C4 11 18 4 24 4C24 17 32 29 24 44Z"
+    fill="#16302B"
+  />
+  <!-- Central Vein Line -->
+  <path
+    d="M24 44V10M24 24L32 17M24 32L16 25"
+    stroke="#F9F9F6"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+  <!-- Amber Sunlight Sparkle -->
+  <circle cx="36" cy="10" r="3.5" fill="#CC5500" />
+</svg>

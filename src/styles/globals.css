@@ -1,0 +1,872 @@
+/* ==========================================================================
+   PLANTIFY GLOBAL STYLES, RESETS & UTILITY FOUNDATIONS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Modern CSS Reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+section[id], div[id] {
+  scroll-margin-top: 90px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-off-white);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   2. Typography Standards
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-forest);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-charcoal-muted);
+}
+
+a {
+  color: var(--color-forest);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-amber);
+}
+
+/* --------------------------------------------------------------------------
+   3. Focus & Accessibility
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Component Styles: Button
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-full);
+  padding: 0.625rem 1.375rem;
+  min-height: 44px; /* Accessible touch target minimum */
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Button Variants */
+.btn--primary {
+  background-color: var(--color-forest);
+  color: var(--color-white);
+  border-color: var(--color-forest);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-forest-dark);
+  border-color: var(--color-forest-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background-color: var(--color-sage-pale);
+  color: var(--color-forest);
+  border-color: var(--color-sage-soft);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: #DEE7DA;
+  border-color: var(--color-forest);
+  transform: translateY(-1px);
+}
+
+.btn--accent {
+  background-color: var(--color-amber);
+  color: var(--color-white);
+  border-color: var(--color-amber);
+  box-shadow: 0 2px 8px rgba(204, 85, 0, 0.25);
+}
+
+.btn--accent:hover:not(:disabled) {
+  background-color: var(--color-amber-dark);
+  border-color: var(--color-amber-dark);
+  box-shadow: 0 4px 14px rgba(204, 85, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-forest);
+  border-color: var(--color-concrete);
+}
+
+.btn--outline:hover:not(:disabled) {
+  border-color: var(--color-forest);
+  background-color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* Button Sizes */
+.btn--sm {
+  padding: 0.4rem 1rem;
+  font-size: var(--text-xs);
+  min-height: 36px;
+}
+
+.btn--lg {
+  padding: 0.85rem 1.85rem;
+  font-size: var(--text-base);
+  min-height: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Component Styles: Badge
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.badge--default {
+  background-color: var(--color-sage-pale);
+  color: var(--color-forest);
+}
+
+.badge--forest {
+  background-color: var(--color-forest);
+  color: var(--color-white);
+}
+
+.badge--sage {
+  background-color: var(--color-sage-bg);
+  color: var(--color-forest-dark);
+}
+
+.badge--amber {
+  background-color: var(--color-amber-pale);
+  color: var(--color-amber-text);
+  border: 1px solid var(--color-amber-border);
+}
+
+.badge--accent {
+  background-color: var(--color-amber);
+  color: var(--color-white);
+}
+
+.badge--outline {
+  background-color: transparent;
+  color: var(--color-forest);
+  border: 1px solid var(--color-concrete);
+}
+
+/* --------------------------------------------------------------------------
+   6. Component Styles: Rating
+   -------------------------------------------------------------------------- */
+.rating-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-star {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.rating-text {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-left: 4px;
+}
+
+.rating-reviews {
+  font-size: var(--text-xs);
+  color: var(--color-charcoal-muted);
+}
+
+/* --------------------------------------------------------------------------
+   7. Motion & Interaction Utilities
+   -------------------------------------------------------------------------- */
+/* Subtle card lift */
+.card-lift {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  will-change: transform;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Pure CSS Loading Spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(22, 48, 43, 0.15);
+  border-top-color: var(--color-forest);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+.spinner--light {
+  border-color: rgba(255, 255, 255, 0.25);
+  border-top-color: var(--color-white);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3D Tilt Container Base */
+.tilt-perspective-wrapper {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s var(--ease-smooth);
+}
+
+/* Parallax CSS Foundation (Reusable skeleton) */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  perspective: 8px;
+  perspective-origin: 0%;
+}
+
+.parallax-layer-back {
+  transform: translateZ(-2px) scale(1.25);
+  transform-origin: 0%;
+}
+
+.parallax-layer-base {
+  transform: translateZ(0);
+}
+
+/* --------------------------------------------------------------------------
+   8. Navbar & Navigation Elements
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 248, 237, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-concrete-light);
+  transition: background-color var(--transition-fast);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  list-style: none;
+}
+
+.nav-link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  padding: 6px 2px;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-amber);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-amber);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-concrete-light);
+  color: var(--color-forest);
+  cursor: pointer;
+  position: relative;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-amber-pale);
+  border-color: var(--color-amber-border);
+  color: var(--color-amber);
+  transform: translateY(-1px);
+}
+
+.icon-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background-color: var(--color-amber);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-concrete-light);
+  color: var(--color-forest);
+  cursor: pointer;
+}
+
+.mobile-drawer {
+  display: none;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-concrete-light);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobile-drawer.open {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   9. Plant Card & Product Grid
+   -------------------------------------------------------------------------- */
+.plant-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-concrete-light);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.plant-card-media {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect ratio */
+  background-color: #F0F3EC;
+  overflow: hidden;
+}
+
+.plant-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.plant-card:hover .plant-card-img {
+  transform: scale(1.05);
+}
+
+.plant-card-badge-container {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+}
+
+.plant-card-fav-btn {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-concrete-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-charcoal-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.plant-card-fav-btn:hover {
+  color: var(--color-amber);
+  transform: scale(1.1);
+}
+
+.plant-card-content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.plant-card-category {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--color-charcoal-light);
+  margin-bottom: 4px;
+}
+
+.plant-card-title {
+  font-size: var(--text-lg);
+  font-family: var(--font-serif);
+  color: var(--color-forest);
+  margin-bottom: 2px;
+}
+
+.plant-card-scientific {
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-charcoal-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.plant-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.plant-card-price {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.plant-card-original-price {
+  font-size: var(--text-sm);
+  color: var(--color-concrete);
+  text-decoration: line-through;
+}
+
+/* --------------------------------------------------------------------------
+   10. AI Assistant Spotlight & Footer
+   -------------------------------------------------------------------------- */
+.ai-spotlight-section {
+  background: linear-gradient(135deg, var(--color-forest) 0%, #0F231E 100%);
+  color: var(--color-off-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-3xl) var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.footer {
+  background-color: var(--color-forest);
+  color: #E2E8E4;
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+}
+/* --------------------------------------------------------------------------
+   11. 10 Category Tiles (Myntra-Inspired Visual Navigation)
+   -------------------------------------------------------------------------- */
+.category-tiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.category-tile {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-concrete-light);
+  border-radius: var(--radius-xl);
+  padding: 10px 8px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+  color: var(--color-charcoal);
+  user-select: none;
+}
+
+.category-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-amber);
+  box-shadow: var(--shadow-md);
+}
+
+.category-tile.active {
+  border-color: var(--color-amber);
+  background-color: var(--color-amber-pale);
+  box-shadow: 0 0 0 2px var(--color-amber);
+}
+
+.category-tile.active .category-tile-title {
+  color: var(--color-amber-text);
+}
+
+.category-tile-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 8px;
+  border: 2px solid var(--color-sage-soft);
+  background-color: #EBF1EA;
+  flex-shrink: 0;
+}
+
+.category-tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s var(--ease-smooth);
+}
+
+.category-tile:hover .category-tile-img {
+  transform: scale(1.1);
+}
+
+.category-tile-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-forest);
+  margin-bottom: 3px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-tile-count {
+  font-size: 0.7rem;
+  color: var(--color-charcoal-light);
+  font-weight: 500;
+}
+
+/* Horizontal scrollable category row on smaller screens */
+.category-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   12. Myntra-Inspired Filters & Sorting Controls
+   -------------------------------------------------------------------------- */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.filter-sidebar {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-concrete-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 90px;
+}
+
+.filter-group {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-concrete-light);
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-title {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.filter-option input[type="radio"],
+.filter-option input[type="checkbox"] {
+  accent-color: var(--color-amber);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-concrete-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.sort-select {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-concrete-light);
+  background-color: var(--color-off-white);
+  color: var(--color-forest);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   13. Accessible Modal Dialog (Quick View)
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(22, 48, 43, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-dialog {
+  background-color: var(--color-white);
+  border-radius: var(--radius-2xl);
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lift);
+  border: 1px solid var(--color-concrete-light);
+  position: relative;
+  animation: slideUp 0.25s var(--ease-spring);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-off-white);
+  border: 1px solid var(--color-concrete-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-forest);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--color-amber);
+  border-color: var(--color-amber);
+  color: var(--color-white);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   14. Reduced Motion Support (Accessibility)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .card-lift:hover,
+  .plant-card:hover {
+    transform: none !important;
+  }
+  
+  .plant-card:hover .plant-card-img {
+    transform: none !important;
+  }
+  
+  .tilt-card {
+    transform: none !important;
+  }
+  
+  .spinner {
+    animation: none !important;
+    border-top-color: var(--color-forest);
+    opacity: 0.7;
+  }
+}
+
